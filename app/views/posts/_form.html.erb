@@ -1,8 +1,10 @@
-<%= form_with model: @post, local: true do |f| %>
+<%= form_with model: @post, local: true, url: new_or_edit do |f| %>
   <div>
     <%= f.label :image %>
+    <%= image_tag(@post.image.thumb.url) if @post.image.thumb.url %>
     <%= f.file_field :image %>
   </div>
+    <%= f.hidden_field :image_cache %>
   <div>
     <%= f.label :content %>
     <%= f.text_field :content %>

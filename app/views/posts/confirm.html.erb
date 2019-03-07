@@ -1,0 +1,19 @@
+<h2>投稿確認</h2>
+<%= form_with model: @post, local: true, url: posts_path do |f| %>
+  <div>
+    <%= image_tag @post.image.thumb.url if @post.image.thumb.url %>
+    <%= f.hidden_field :image_cache %>
+    <%= f.hidden_field :content %>
+  </div>
+  <div>
+    <%= @post.content %>
+  </div>
+  <%= f.submit '投稿' %>
+<% end %>
+
+<!--newへ戻るボタン用データ送信フォーム-->
+<%= form_with model: @post, url: new_post_path, local: true, method: 'get' do |f| %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.hidden_field :content %>
+  <%= f.submit '戻る', name: 'back' %>
+<% end %>
