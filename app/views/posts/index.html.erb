@@ -1,0 +1,12 @@
+<h2>一覧ページ</h2>
+<% @posts.each do |post| %>
+  <div class="post_wrapper">
+    <div>
+      <%= image_tag post.image.thumb.url %>
+    </div>
+    <div>投稿者: <%= post.user.name %></div>
+    <div>
+      <%= post.content %>
+    </div>
+  </div>
+<% end %>
