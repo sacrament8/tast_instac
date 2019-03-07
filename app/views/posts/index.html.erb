@@ -8,5 +8,12 @@
     <div>
       <%= post.content %>
     </div>
+    <div>
+    <% if current_user.id == post.user_id %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Delete', post_path(post), method: :delete,
+                                            data: { confirm: '投稿を削除しますか?' } %>
+    <% end %>
+    </div>
   </div>
 <% end %>

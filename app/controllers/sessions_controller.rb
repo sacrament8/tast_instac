@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to new_session_path, notice: "ログインが成功しました"
+    redirect_to new_session_path, notice: "ログアウトに成功しました"
   end
 end
