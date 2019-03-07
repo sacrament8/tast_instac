@@ -27,6 +27,18 @@ class PostsController < ApplicationController
     render :new if @post.invalid?
   end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to posts_path, notice: '投稿の編集に成功しました'
+    else
+      flash.now[:danger] = '入力に不備があります'
+      render 'edit'
+    end
+  end
+
   def destroy
     @post.destroy
     redirect_to posts_path, notice: '投稿削除に成功しました'
