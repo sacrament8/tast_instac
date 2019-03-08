@@ -32,6 +32,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def look_all
+    @posts = current_user.likes_posts
+  end
+
   private
 
   def user_params

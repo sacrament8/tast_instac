@@ -1,0 +1,17 @@
+<h2>お気に入り投稿一覧</h2>
+<% @posts.each do |post| %>
+  <div class="post_wrapper">
+    <%= link_to post_path(post) do %>
+    <div>
+      <%= image_tag post.image.thumb.url %>
+    </div>
+    <% end %>
+      投稿者:<%= post.user.name %>
+    <div>
+      コメント:<br>
+      <%= post.content %>
+    </div>
+    <div>
+    </div>
+  </div>
+<% end %>
