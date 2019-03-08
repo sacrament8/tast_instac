@@ -1,11 +1,11 @@
 <h2>ログイン</h2>
 <%= form_with scope: :session, url: sessions_path, local: true do |f| %>
   <div>
-    <%= f.label :email %>
+    <%= f.label :アドレス %>
     <%= f.email_field :email %>
   </div>
   <div>
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <%= f.password_field :password %>
   </div>
   <div>
