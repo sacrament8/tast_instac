@@ -1,7 +1,6 @@
 <h2>投稿詳細画面</h2>
-<div>原寸サイズ画像</div>
 <div>
-  <%= image_tag @post.image.url %>
+  <%= image_tag @post.image.thumb.url %>
 </div>
 <% unless @post.user_id == current_user.id %>
   <% if @like.present? %>
