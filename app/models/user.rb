@@ -6,5 +6,7 @@ class User < ApplicationRecord
   has_many :posts
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  has_many :likes, dependent: :destroy
+  has_many :likes_posts, through: :likes, source: :post
   mount_uploader :image, ImageUploader
 end

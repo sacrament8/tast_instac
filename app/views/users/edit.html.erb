@@ -1,0 +1,19 @@
+<h2>プロフィール編集ページ</h2>
+<%= form_with model: @user, local: true, url: user_path do |f| %>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.label :profile %>
+    <%= f.text_field :profile %>
+  </div>
+  <%= f.hidden_field :password %>
+  <div>
+    <%= f.label :password, '本人確認用パスワード' %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit '編集' %>
+  </div>
+<% end %>

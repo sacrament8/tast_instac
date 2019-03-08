@@ -1,2 +1,24 @@
 <h2>個人ページ</h2>
-<div><%= @user.name %>さんこんにちは</div>
+<div class="user_info">
+  <!--画像が登録されていればそれを表示、されていなければ事前用意画像を表示-->
+  <% if @user.image.thumb.url %>
+    <%= image_tag @user.image.thumb.url %>
+  <% else %>
+    <img src="/no_image.png">
+  <% end %>
+  <!--ログインユーザ名を表示-->
+  <div><%= @user.name %>さんこんにちは</div>
+  <!--プロフィールがあれば表示、なければ未編集であるという文章を表示-->
+  <p>プロフィール</p>
+  <div>
+    <% if @user.profile %>
+      <%= @user.profile %>
+    <% else %>
+      <p>このユーザはまだプロフィールを追加していません</p>
+    <% end %>
+  </div>
+  <!--編集ボタン-->
+  <div>
+    <%= link_to 'プロフィールの編集', edit_user_path(current_user) %>
+  </div>
+</div>

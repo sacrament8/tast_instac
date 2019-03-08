@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :show]
   def index
     @posts = Post.all
   end
@@ -22,6 +22,9 @@ class PostsController < ApplicationController
     end
   end
   
+  def show
+  end
+
   def confirm
     @post = current_user.posts.build(post_params)
     render :new if @post.invalid?
