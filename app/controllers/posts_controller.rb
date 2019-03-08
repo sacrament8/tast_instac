@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, notice: '投稿成功'
+      PostMailer.post_mail(@post).deliver
+      redirect_to posts_path, notice: '投稿成功です、投稿完了メールをお送りしました'
     else
       flash.now[:danger] = "投稿に失敗しました"
       render :new

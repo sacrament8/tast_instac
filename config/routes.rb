@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: [:create, :destroy]
+  mount LetterOpenerWeb::Engine, at: "/lo" if Rails.env.development?
 end
