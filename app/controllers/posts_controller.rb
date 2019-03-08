@@ -33,6 +33,10 @@ class PostsController < ApplicationController
   end
 
   def edit
+    unless params[:id] == current_user.id
+      flash[:danger] = "不正なアクセスです、個人ページにリダイレクトします"
+      redirect_to user_path(current_user)
+    end
   end
 
   def update

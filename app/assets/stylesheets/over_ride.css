@@ -1,0 +1,16 @@
+@charset "utf-8";
+body {
+  font-size: 62.5%;
+  font-family: "ヒラギノ角ゴシック";
+}
+.logo {
+  font-weight: bold;
+  font-family: "arial black";
+}
+.navbar {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.nav-link {
+  font-size: 0.8rem;
+}
