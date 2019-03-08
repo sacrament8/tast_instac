@@ -19,6 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'mini_magick'
 # gem 'capistrano-rails', group: :development
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
