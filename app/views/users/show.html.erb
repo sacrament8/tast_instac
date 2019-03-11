@@ -1,5 +1,5 @@
 <!--ログインユーザ名を表示-->
-<div class="text-center user_wellcome py-3"><%= @user.name %>さんこんにちは</div>
+<div class="text-center user_wellcome py-3 col-sm-12"><%= @user.name %>さんこんにちは</div>
 <div class="card" style="width: 18rem;">
   <!--画像が登録されていればそれを表示、されていなければ事前用意画像を表示-->
   <% if @user.image.thumb.url %>

@@ -17,6 +17,7 @@ body {
 }
 .container {
   background: white;
+  margin-bottom: 50px;
 }
 footer {
   height: 50px;
@@ -28,9 +29,6 @@ footer {
   font-family: "arial black";
   vertical-align: center;
   margin-top: 15px;
-}
-.container {
-  margin-bottom: 50px;
 }
 .card-text {
   font-size: 0.8rem;
