@@ -16,7 +16,8 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       PostMailer.post_mail(@post).deliver
-      redirect_to posts_path, notice: '投稿成功です、投稿完了メールをお送りしました'
+      flash[:success] = '投稿成功です、投稿完了メールをお送りしました'
+      redirect_to posts_path
     else
       flash.now[:danger] = "投稿に失敗しました"
       render :new
@@ -33,15 +34,13 @@ class PostsController < ApplicationController
   end
 
   def edit
-    unless params[:id] == current_user.id
-      flash[:danger] = "不正なアクセスです、個人ページにリダイレクトします"
-      redirect_to user_path(current_user)
-    end
+    ensure_correct_user
   end
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path, notice: '投稿の編集に成功しました'
+      flash[:success] = '投稿の編集に成功しました'
+      redirect_to posts_path
     else
       flash.now[:danger] = '入力に不備があります'
       render 'edit'
@@ -50,7 +49,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: '投稿削除に成功しました'
+    flash[:success] = '投稿削除に成功しました'
+    redirect_to posts_path
   end
 
   private
@@ -60,6 +60,6 @@ class PostsController < ApplicationController
   end
   
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
   end
 end

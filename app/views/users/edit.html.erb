@@ -1,19 +1,16 @@
-<h2>プロフィール編集ページ</h2>
 <%= form_with model: @user, local: true, url: user_path do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: "form-control-file" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :profile %>
-    <%= f.text_field :profile %>
+    <%= f.text_field :profile, class: "form-control" %>
   </div>
-  <%= f.hidden_field :password %>
-  <div>
+  <%= f.hidden_field :password, class: "form-control" %>
+  <div class="form-group">
     <%= f.label :password, '本人確認用パスワード' %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
-  <div>
-    <%= f.submit '編集' %>
-  </div>
+  <%= f.submit '編集', class: "btn btn-primary mb-2" %>
 <% end %>

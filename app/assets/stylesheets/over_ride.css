@@ -2,6 +2,7 @@
 body {
   font-size: 62.5%;
   font-family: "ヒラギノ角ゴシック";
+  background: #d2d7dd;
 }
 .logo {
   font-weight: bold;
@@ -13,4 +14,27 @@ body {
 }
 .nav-link {
   font-size: 0.8rem;
+}
+.container {
+  background: white;
+}
+footer {
+  height: 50px;
+  background: #007bff;
+  width: 100%;
+}
+.footer_font {
+  color: white;
+  font-family: "arial black";
+  vertical-align: center;
+  margin-top: 15px;
+}
+.container {
+  margin-bottom: 50px;
+}
+.card-text {
+  font-size: 0.8rem;
+}
+.user_wellcome {
+  font-size: 1.5rem;
 }

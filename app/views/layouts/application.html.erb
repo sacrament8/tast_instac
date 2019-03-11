@@ -35,7 +35,7 @@
           </li>
       </ul>
         <% else %>
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav">
           <li class="nav-item">
             <%= link_to "会員登録", new_user_path, class:'nav-link text-light' %>
           </li>
@@ -45,9 +45,14 @@
       </ul>
         <% end %>
   </nav>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>  
-<%= yield %>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert-#{key} alert") %>
+  <% end %>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <footer class="fixed-bottom">
+    <div class="footer_font text-center align-middle">instac</div>
+  </footer>
 </body>
 </html>

@@ -1,14 +1,11 @@
-<h2>ログイン</h2>
 <%= form_with scope: :session, url: sessions_path, local: true do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :アドレス %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :パスワード %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
-  <div>
-    <%= f.submit 'ログイン' %>
-  </div>
+  <%= f.submit 'ログイン', class: "btn btn-primary mb-2" %>
 <% end %>

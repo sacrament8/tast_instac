@@ -1,16 +1,15 @@
-<h2>個人ページ</h2>
-<div class="user_info">
+<!--ログインユーザ名を表示-->
+<div class="text-center user_wellcome py-3"><%= @user.name %>さんこんにちは</div>
+<div class="card" style="width: 18rem;">
   <!--画像が登録されていればそれを表示、されていなければ事前用意画像を表示-->
   <% if @user.image.thumb.url %>
-    <%= image_tag @user.image.thumb.url %>
+    <%= image_tag @user.image.thumb.url, class: "card-img-top" %>
   <% else %>
-    <img src="/no_image.png">
+    <img src="/no_image.png" class="card-img-top">
   <% end %>
-  <!--ログインユーザ名を表示-->
-  <div><%= @user.name %>さんこんにちは</div>
   <!--プロフィールがあれば表示、なければ未編集であるという文章を表示-->
-  <p>プロフィール</p>
-  <div>
+  <h6 class="card-title text-center">プロフィール</h6>
+  <div class="card-text">
     <% if @user.profile %>
       <%= @user.profile %>
     <% else %>
@@ -18,7 +17,5 @@
     <% end %>
   </div>
   <!--編集ボタン-->
-  <div>
-    <%= link_to 'プロフィールの編集', edit_user_path(current_user) %>
-  </div>
+  <%= link_to 'プロフィールの編集', edit_user_path(current_user), class: "btn btn-primary mt-2 mb-2" %>
 </div>
