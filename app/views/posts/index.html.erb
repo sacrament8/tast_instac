@@ -1,20 +1,18 @@
-<div class="row">
-  <% @posts.each do |post| %>
-    <div class="card col-md-5 mx-auto my-2" style="width: 18rem;">
-      <%= link_to post_path(post.id) do %>
-        <%= image_tag post.image.thumb.url, class: "card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h6 class="card-header text-center">投稿者: <%= post.user.name %></h6>
-        <p class="card-text text-left mt-2"><%= post.content %></p>
-          <% if current_user.id == post.user_id %>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <%= link_to 'Edit', edit_post_path(post.id, params: { confirm_id: post.user_id }),class: "pull-right btn btn-primary" %>
-              <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: '投稿を削除しますか?' },
-                                                  class: "btn btn-primary" %>
-            </div>
-          <% end %>
-      </div>
+<% @posts.each do |post| %>
+  <div class="card col-xs-10 col-md-5 mx-auto my-2" style="width: 18rem;">
+    <%= link_to post_path(post.id) do %>
+      <%= image_tag post.image.thumb.url, class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <h6 class="card-header text-center">投稿者: <%= post.user.name %></h6>
+      <p class="card-text text-left mt-2"><%= post.content %></p>
+        <% if current_user.id == post.user_id %>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <%= link_to 'Edit', edit_post_path(post.id, params: { confirm_id: post.user_id }),class: "pull-right btn btn-primary" %>
+            <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: '投稿を削除しますか?' },
+                                                class: "btn btn-primary" %>
+          </div>
+        <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
